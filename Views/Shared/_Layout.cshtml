@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/reset.css" />
+    <link rel="stylesheet" href="~/css/icon.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</head>
+<body>
+    <div class="header">
+        <div></div>
+        Header
+        <div class="login-block">
+            <div>
+                <input class="input-login" type="text" placeholder="login" />
+            </div>
+            <div>
+                <input type="text" placeholder="Password" />
+                <input class="login" type="button" value="Login" />
+            </div>
+        </div>
+    </div>
+    <div class="center-block">
+        <div class="left-menu">
+            <div class="link icon fauna">
+                button 1
+            </div>
+            <div class="link icon flora">
+                button 2
+            </div>
+            <div class="link icon equipment">
+                button 3
+            </div>
+            <div class="link icon home">
+                <a href="/Home/Index">
+                    Home
+                </a>
+            </div>
+            <div class="link icon account">
+                <a href="/User/Profile">
+                    Accaunt
+                </a>
+            </div>
+            <div class="link icon login">
+                <a href="/User/Login">
+                    Login
+                </a>
+            </div>
+            <div class="link icon registration">
+                <a href="/User/Registration">
+                    Registration
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            @RenderBody()
+
+        </div>
+        <div class="right-menu">
+
+        </div>
+    </div>
+</body>
+</html>

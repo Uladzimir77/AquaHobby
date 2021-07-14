@@ -1,0 +1,29 @@
+﻿@model RegistrationViewModel
+
+@section Scripts{
+    <script src="~/js/registration.js"></script>
+}
+<div id="registration-block">
+    <div>
+        <h1>Регистрация:</h1>
+    </div>
+
+    <form action="/User/Registration" method="post">
+        <div>
+            Login:  @Html.TextBoxFor(x => x.Login, new { @placeholder = "Login" })
+            <span class="icon ok hide"></span>
+            <span class="icon close hide"></span>
+            <span class="icon spiner hide"></span>
+            @Html.ValidationMessageFor(x => x.Login)
+        </div>
+
+        <div>
+            Password:  @Html.TextBoxFor(x => x.Password, new { @placeholder = "Password" })
+            @Html.ValidationMessageFor(x => x.Password)
+        </div>
+
+        <div>
+            <input type="submit" value="Registration" />
+        </div>
+    </form>
+</div>

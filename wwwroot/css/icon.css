@@ -1,0 +1,43 @@
+.icon::before {
+    width: 20px;
+    height: 20px;
+    display:inline-block;
+    content:' ';
+    background-size:contain;
+}
+
+.fauna::before {
+    background-image: url('../image/icon/fauna.svg');
+}
+
+.flora::before {
+    background-image: url('../image/icon/flora.svg');
+}
+
+.equipment::before {
+    background-image: url('../image/icon/equipment.svg');
+}
+
+.fauna:hover::before {
+    background-image: url('../image/icon/fauna_hover.svg');
+}
+
+.flora:hover::before {
+    background-image: url('../image/icon/flora_hover.svg');
+}
+
+.equipment:hover::before {
+    background-image: url('../image/icon/equipment_hover.svg');
+}
+
+.ok::before {
+    background-image: url('../image/icon/done_black_24dp.svg')
+}
+
+.close::before {
+    background-image: url('../image/icon/thumb_down_black_24dp.svg')
+}
+
+.spiner::before {
+    background-image: url('../image/icon/spiner.gif')
+}
