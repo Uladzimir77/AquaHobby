@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace AquaHobby.EfStuff.Model
 {
-    public class Fish : BaseModel
+    public abstract class BaseModel
     {
-        public int Cost { get; set; }
-        public string Url { get; set; }
+        public long Id { get; set; }
     }
 }

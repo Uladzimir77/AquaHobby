@@ -1,5 +1,6 @@
 ﻿using AquaHobby.EfStuff;
 using AquaHobby.EfStuff.Model;
+using AquaHobby.EfStuff.Repositories;
 using AquaHobby.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,14 +12,13 @@ namespace AquaHobby.Controllers
 {
     public class UserController : Controller
     {
-        public static List<ProfileViewModel> Users = new List<ProfileViewModel>();
         public static int Counter = 0;
 
-        private AquaDbContext _dbContext;
+        private UserRepository _userRepository;
 
-        public UserController(AquaDbContext dbContext)
+        public UserController(UserRepository userRepository)
         {
-            this._dbContext = dbContext;
+            _userRepository = userRepository;
         }
         public IActionResult Profile()
         {
@@ -28,6 +28,12 @@ namespace AquaHobby.Controllers
 
             };
             return View(model);
+        }
+
+        public IActionResult MyHomeContent()
+        {
+        
+            return View();
         }
 
         [HttpGet]
@@ -44,7 +50,8 @@ namespace AquaHobby.Controllers
             {
                 return View(model);
             }
-            var user = Users.SingleOrDefault(x => x.UserName == model.Login);
+
+            var user = _userRepository.GetByName(model.Login);
 
             if (user == null)
             {
@@ -76,20 +83,17 @@ namespace AquaHobby.Controllers
                 return View(model);
             }
 
-            var isUserUniq = Users.All(x => x.UserName != model.Login);
+            var isUserUniq = _userRepository.GetByName(model.Login) == null;
 
             if (isUserUniq)
             {
                 var user = new User()//создаем объект для базы данных
                 {
-                    Name =model.Login,
-                    Password=model.Password,
+                    Name = model.Login,
+                    Password = model.Password,
                     Age = 18
                 };
-
-                _dbContext.Users.Add(user);
-                _dbContext.SaveChanges();//сохраняет все изменнения в БД
-                
+                _userRepository.Save(user);
             }
 
             return View(model);
@@ -97,8 +101,8 @@ namespace AquaHobby.Controllers
 
         public JsonResult IsUserExist(string name)//проверка, существует ли уже пользователь с таким User.Name
         {
-            var answer = Users.Any(x => x.UserName == name);
-            return Json(answer);
+            var isExistUserWithTheName = _userRepository.GetByName(name) != null;
+            return Json(isExistUserWithTheName);
         }
     }
 }

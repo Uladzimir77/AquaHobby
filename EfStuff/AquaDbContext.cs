@@ -12,6 +12,7 @@ namespace AquaHobby.EfStuff
         public AquaDbContext(DbContextOptions options) : base(options) { }
         public DbSet<User> Users { get; set; }
         public DbSet<Fish> Fish{ get; set; }
+        public DbSet<Fauna> Fauna { get; set; }
 
     }
 }

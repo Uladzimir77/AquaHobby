@@ -79,3 +79,5 @@ C:\Users\Vladimir\Desktop\VS2019\AquaHobby\AquaHobby\bin\Debug\netcoreapp3.1\run
 C:\Users\Vladimir\Desktop\VS2019\AquaHobby\AquaHobby\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\Vladimir\Desktop\VS2019\AquaHobby\AquaHobby\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Vladimir\Desktop\VS2019\AquaHobby\AquaHobby\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Vladimir\Desktop\VS2019\AquaHobby\AquaHobby\obj\Debug\netcoreapp3.1\Razor\Views\Fauna\Add.cshtml.g.cs
+C:\Users\Vladimir\Desktop\VS2019\AquaHobby\AquaHobby\obj\Debug\netcoreapp3.1\Razor\Views\Fauna\Index.cshtml.g.cs

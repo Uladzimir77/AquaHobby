@@ -1,0 +1,21 @@
+﻿@model List<FaunaViewModel>
+<div class="fauns">
+    @foreach (var fauna in Model)
+    {
+        <div class="fauna">
+            <div class="name">
+                @fauna.FaunaName <a href="/Fauna/Remove?id=@fauna.Id" class="icon close"></a>
+            </div>
+            <div class="fauna-block-image">
+                <img class="fauna-img" src="@fauna.ImageUrl" />
+            </div>
+            <div>
+                Цена:@fauna.Price
+            </div>
+            <div>
+                Остаток:@fauna.Count
+            </div>
+        </div>
+    }
+  
+</div>

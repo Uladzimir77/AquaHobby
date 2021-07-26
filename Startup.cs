@@ -1,4 +1,5 @@
 using AquaHobby.EfStuff;
+using AquaHobby.EfStuff.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,8 +26,11 @@ namespace AquaHobby
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=AquaHobby;Trusted_Connection=True";
-            services.AddDbContext<AquaDbContext>(x=>x.UseSqlServer(connectionString));
+            var connectionString = Configuration.GetValue<string>("connectionString");
+            services.AddDbContext<AquaDbContext>(x => x.UseSqlServer(connectionString));
+            services.AddScoped<UserRepository>(diContainer => new UserRepository(diContainer.GetService<AquaDbContext>()));
+            services.AddScoped<FaunaRepository>(diContainer => new FaunaRepository(diContainer.GetService<AquaDbContext>()));
+
             services.AddControllersWithViews();
         }
 
@@ -54,7 +58,7 @@ namespace AquaHobby
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                      pattern: "{controller=User}/{action=MyHomeContent}/{id?}");
             });
         }
     }

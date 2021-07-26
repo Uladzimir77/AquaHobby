@@ -12,30 +12,18 @@
 <body>
     <div class="header">
         <div></div>
-        Header
+        <div class="header-text">
+            AquaHobby
+        </div>
         <div class="login-block">
-            <div>
-                <input class="input-login" type="text" placeholder="login" />
-            </div>
-            <div>
-                <input type="text" placeholder="Password" />
-                <input class="login" type="button" value="Login" />
-            </div>
+           
         </div>
     </div>
     <div class="center-block">
         <div class="left-menu">
-            <div class="link icon fauna">
-                button 1
-            </div>
-            <div class="link icon flora">
-                button 2
-            </div>
-            <div class="link icon equipment">
-                button 3
-            </div>
+           
             <div class="link icon home">
-                <a href="/Home/Index">
+                <a href="/User/MyHomeContent">
                     Home
                 </a>
             </div>
@@ -44,24 +32,37 @@
                     Accaunt
                 </a>
             </div>
-            <div class="link icon login">
-                <a href="/User/Login">
-                    Login
-                </a>
-            </div>
-            <div class="link icon registration">
-                <a href="/User/Registration">
-                    Registration
-                </a>
-            </div>
+            
+          
         </div>
         <div class="content">
             @RenderBody()
 
         </div>
         <div class="right-menu">
+            <div class="login-block">
+                <div>
+                    <div class="link icon registration">
+                        <a href="/User/Registration">
+                            Регистрация
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <div class="link icon login">
+                        <a href="/User/Login">
+                            Вход
+                        </a>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
+    <footer class="footer">
+        <div></div>
+        <div class="footer-text">Copyright : Жуковень Владимир</div>
+        <div></div>
+    </footer>
 </body>
 </html>

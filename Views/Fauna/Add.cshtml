@@ -1,0 +1,23 @@
+﻿@model FaunaViewModel
+<form action="/Fauna/Add" method="post">
+    <div>
+        Название товара:@Html.TextBoxFor(x => x.FaunaName)
+        @Html.ValidationMessageFor(x => x.FaunaName)
+    </div>
+    <div>
+        Путь к картинке:@Html.TextBoxFor(x => x.ImageUrl)
+        @Html.ValidationMessageFor(x => x.ImageUrl)
+    </div>
+
+    <div>
+        Цена:@Html.TextBoxFor(x => x.Price, new { type = "number" })
+        @Html.ValidationMessageFor(x => x.Price)
+    </div>
+    <div>
+        Остаток на складе:@Html.TextBoxFor(x => x.Count, new { type = "number" })
+        @Html.ValidationMessageFor(x => x.Count)
+    </div>
+    <div class="form-group">
+        <button type="submit">Добавить товар</button>
+    </div>
+</form>
